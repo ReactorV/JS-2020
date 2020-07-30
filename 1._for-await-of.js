@@ -6,7 +6,7 @@ const emulateDelay = (id, ms) => {
 
 const promises = [
     emulateDelay(1, 300),
-    emulateDelay(2, 600),
+    emulateDelay(2, 1600),
     emulateDelay(3, 1000)
 ];
 
