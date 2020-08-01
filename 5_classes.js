@@ -1,4 +1,6 @@
 class Person {
+    static type = 'HUMAN';
+    static #area = 'EARTH';//static private
     field = 'unknown name';
     #year = 1989;//private
 
@@ -10,10 +12,13 @@ class Person {
         return new Date().getFullYear() - this.#year;
     }
 
-    yearsOld(years) {
-        this.#year = years;
+    setAge(years) {
+        this.#year = new Date().getFullYear() - years;
     }
 
+    static getArea() {
+        return Person.#area === 'EARTH' ? 'EARTH' : 'MARS';
+    }
 }
 
 const person = new Person('Vadim');
@@ -24,6 +29,12 @@ person.field;
 person.age;
 //31
 
-person.yearsOld(20);
+person.setAge(25);
 console.log(person.age);
-//2000
+//25
+
+console.log(Person.type);
+//HUMAN
+
+console.log(Person.getArea());
+//EARTH
